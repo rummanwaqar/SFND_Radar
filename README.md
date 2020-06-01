@@ -1,10 +1,11 @@
-# Radar Target Generation and Detection Project (Udacity Sensor Fusion ND)
+# Radar Target Generation and Detection Project 
+(Udacity Sensor Fusion ND)
 
 ## 2D CFAR 
 
 #### Parameter selection
 
-Training and guard cell size was selected with trial and error method. The following values gave us good results for the project
+Training and guard cell size was selected with trial and error method. The following values gave us good results for the project.
 
 ```
 %Select the number of Training Cells in both the dimensions.
@@ -26,7 +27,7 @@ offset = 20;
 #### Implementation steps
 
 1. Iterate over the grid.
-2. For each CUT in grid calculate the theshold by averaging each training cell and adding the offset.
+2. For each CUT in grid calculate the theshold by averaging each training cell and adding the offset. We convert the value to linear scale for averaging and then back to log scale for thresholding.
 3. Compare the CUT against the threshold and assign value of 1 if it is greater than the threshold, otherwise set it to zero.
 
 
@@ -62,7 +63,7 @@ end
 
 #### Suppression of non-thresholded cells at the edge
 
-To suppress the cells at the edge we just set them all to zero
+To suppress the cells at the edge we just set them all to zero.
 
 ```
 RDM(1:(Tr+Gr),:) = 0;
